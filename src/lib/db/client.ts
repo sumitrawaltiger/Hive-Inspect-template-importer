@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 export interface Queryable {
@@ -56,6 +56,7 @@ async function createPostgres(url: string): Promise<Database> {
 
 export async function createPglite(dataDir?: string): Promise<Database> {
   const { PGlite } = await import("@electric-sql/pglite");
+  if (dataDir) mkdirSync(path.dirname(dataDir), { recursive: true });
   const pg = new PGlite(dataDir);
   await pg.exec(schemaSql());
   return {

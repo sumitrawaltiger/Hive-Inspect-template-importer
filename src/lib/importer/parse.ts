@@ -464,6 +464,7 @@ export function parseSpectoraExport(buffer: Buffer, fileName: string): ParseResu
       name: commentName,
       bodyHtml: outcome.html,
       sourceBodyHtml: commentText,
+      markupAltered: outcome.altered,
       commentType,
       rawCommentType: rawType,
       attributes,

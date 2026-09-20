@@ -37,6 +37,7 @@ export interface ParsedComment {
   name: string;
   bodyHtml: string;
   sourceBodyHtml: string;
+  markupAltered: boolean;
   commentType: CommentType;
   rawCommentType: string;
   attributes: Record<string, string>;

@@ -122,6 +122,9 @@ function extractImages(html: string): string[] {
 }
 
 export function sanitizeCommentHtml(source: string): SanitizeOutcome {
+  if (!source.trim()) {
+    return { html: "", removedEmbeds: [], removedUnsafe: [], externalImages: [], textChanged: false, altered: false };
+  }
   const input = looksLikeHtml(source) ? source : plainTextToHtml(source);
   const html = sanitizeHtml(input, OPTIONS).trim();
 

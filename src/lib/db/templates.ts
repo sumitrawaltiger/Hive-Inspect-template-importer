@@ -334,7 +334,7 @@ export async function createFromImport(
             originalName: comment.name,
             bodyHtml: comment.bodyHtml,
             originalBodyHtml: comment.bodyHtml,
-            sourceBodyHtml: comment.sourceBodyHtml === comment.bodyHtml ? null : comment.sourceBodyHtml,
+            sourceBodyHtml: comment.markupAltered ? comment.sourceBodyHtml : null,
             commentType: comment.commentType,
             rawCommentType: comment.rawCommentType,
             attributes: comment.attributes,
